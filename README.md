@@ -1,20 +1,50 @@
-# Livre 3D Phacet : version sans zoom
+# Livres 3D Phacet
 
-Livre seul, fond transparent, rotation au glisser conservée.
-Zoom du modèle désactivé (molette et pincement), sans boutons, sommaire ni barre de chargement.
+Ce dossier contient les fichiers prêts à publier sur GitHub Pages.
 
-## Upload GitHub
+## Déposer les fichiers
 
-Dézipper le paquet et déposer son contenu à la racine de Sholy-KLIMB/phacet-livre-3d. Ne pas déposer le ZIP lui-même.
-Fichiers nécessaires : index.html, livre.glb, model-viewer.min.js. Le fichier .nojekyll est fourni pour désactiver Jekyll.
+Déposer **le contenu de ce dossier à la racine du dépôt** `Sholy-KLIMB/phacet-livre-3d`,
+et non le dossier `A-METTRE-SUR-GITHUB` lui-même. Remplacer les fichiers existants
+portant le même nom. Conserver les sous-dossiers `ouvert/` et `documentation/`.
+Ne pas ajouter les archives ZIP, tests, scripts de génération ni sauvegardes du
+répertoire de travail situé au-dessus de ce dossier.
 
-Dans Settings > Pages : Deploy from a branch, main, /(root), Save.
-Attendre la publication réussie, puis vérifier Visit site.
-Adresse prévue : https://sholy-klimb.github.io/phacet-livre-3d/
-Ce paquet ne confirme pas que GitHub Pages est déjà activé ou publié.
+Le fichier vide `.nojekyll` doit être conservé ; il peut être masqué dans le Finder.
 
-## Webflow
+## Contenu
 
-Copier le contenu de embed-webflow.html dans un bloc Code Embed, après confirmation de l'adresse publiée.
+- `index.html`, `livre.glb` : livre fermé aminci.
+- `model-viewer.min.js` : lecteur partagé par les deux livres.
+- `ouvert/` : livre ouvert, scripts et les 14 doubles pages originales.
+- `documentation/` : codes d’embed WordPress et correspondance des ID des CTA.
+- `.nojekyll`, `.gitignore` : configuration minimale du dépôt.
 
-Lecteur Google model-viewer 4.1.0, Apache-2.0. Mentions de licence conservées dans le fichier JavaScript.
+Les deux lecteurs affichent uniquement le modèle 3D sur fond transparent.
+Aucun menu ni bouton de chapitre n’est créé dans l’embed.
+
+## Adresses prévues après publication
+
+- Livre fermé : https://sholy-klimb.github.io/phacet-livre-3d/
+- Livre ouvert : https://sholy-klimb.github.io/phacet-livre-3d/ouvert/#chapitre-1
+
+Les chemins existants sont conservés. Ce dossier a été préparé localement ;
+aucun envoi sur GitHub ni changement de WordPress n’a été effectué.
+
+## WordPress
+
+Copier le contenu de `documentation/embed-livre-ouvert.html` dans un bloc HTML
+personnalisé pour le livre ouvert. Le script doit être autorisé par WordPress.
+Utiliser les ID HTML `cta-chapitre-1` à `cta-chapitre-9` sur les CTA existants,
+sans `#` dans le champ ID. La liste complète et les exemples figurent dans
+`documentation/INTEGRATION.md`.
+
+Le livre ouvert démarre sur le chapitre 1. Les CTA changent sa double page sans
+recharger le modèle et conservent l’orientation choisie par le visiteur.
+
+Pour le livre fermé, utiliser `documentation/embed-livre-ferme.html`.
+
+## Licence du lecteur
+
+Google model-viewer 4.1.0, Apache-2.0. Les mentions du lecteur tiers sont conservées
+dans `model-viewer.min.js`.
